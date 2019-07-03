@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B2G-il-RFo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fPe-4O-3JD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="18.440779610194905"/>
+            <point key="canvasLocation" x="2833" y="212"/>
         </scene>
         <!--test-->
         <scene sceneID="KCc-ty-jw2">
@@ -103,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Don't have an account? Sign-Up"/>
                                 <connections>
-                                    <segue destination="B2G-il-RFo" kind="presentation" id="m6D-Eb-eyY"/>
+                                    <segue destination="fPe-4O-3JD" kind="show" id="N05-o4-n5u"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid Email or Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htS-oZ-E4N" userLabel="error">
@@ -153,16 +153,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DIm-KD-KgY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CO2-xN-2Uo"/>
                     <connections>
                         <outlet property="emailField" destination="cRQ-Ne-RNf" id="dDV-FQ-dL2"/>
                         <outlet property="errorField" destination="htS-oZ-E4N" id="DU5-wo-3dF"/>
                         <outlet property="passwordField" destination="QB4-cv-pgN" id="uDm-iJ-ZLI"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginToMain" id="WaU-sw-cuK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-Vs-Lq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="-679.61019490254876"/>
+            <point key="canvasLocation" x="703.20000000000005" y="-679.61019490254876"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="PjK-wX-HNn">
@@ -171,13 +171,23 @@
                     <view key="view" contentMode="scaleToFill" id="8OX-Bg-kHP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyl-jI-dIY">
+                                <rect key="frame" x="135" y="264" width="105" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sicko the Bicko"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="bWZ-gr-Tg8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="4Ci-l2-NBN"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RCy-LM-INO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1068" y="-680"/>
+            <point key="canvasLocation" x="2730" y="-419"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="sbO-Bb-Kqx">
@@ -213,6 +223,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="B2G-il-RFo" eventType="touchUpInside" id="vHs-u7-ZaR"/>
+                                    <segue destination="0ty-U9-Gdw" kind="show" id="AHj-kO-f73"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-iZ-d0c">
@@ -222,7 +233,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Epv-o8-Ted" kind="presentation" id="S1k-eI-AI1"/>
+                                    <segue destination="Epv-o8-Ted" kind="show" id="FAr-OY-f5b"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2si-zU-gJo" customClass="MadokaTextField" customModule="TextFieldEffects">
@@ -265,22 +276,37 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="swI-Tx-nZl"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7Rc-QC-WM7"/>
                     <connections>
                         <outlet property="emailField" destination="2si-zU-gJo" id="rtP-YB-THQ"/>
                         <outlet property="errorField" destination="rbc-Is-eeO" id="pFa-o7-vwP"/>
                         <outlet property="passwordField" destination="3rR-xN-0TW" id="Vum-wH-bs9"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="regToMain" id="mdd-pf-S6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5F-h5-TFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746.39999999999998" y="17.541229385307346"/>
+            <point key="canvasLocation" x="852" y="72.413793103448285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z7d-IT-L7Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fPe-4O-3JD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cnU-8T-KtL">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="B2G-il-RFo" kind="relationship" relationship="rootViewController" id="Y7F-jV-ZiD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxm-Ch-4pL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87.200000000000003" y="72.413793103448285"/>
         </scene>
     </scenes>
     <resources>
         <image name="RunAnywhere" width="1920" height="1080"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="WaU-sw-cuK"/>
-    </inferredMetricsTieBreakers>
 </document>

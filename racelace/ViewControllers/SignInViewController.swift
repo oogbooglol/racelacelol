@@ -43,7 +43,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "loginToMain", sender: self)
             }
         }
     }

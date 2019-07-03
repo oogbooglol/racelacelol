@@ -42,7 +42,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
             else {
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "regToMain", sender: self)
             }
         }
     }
