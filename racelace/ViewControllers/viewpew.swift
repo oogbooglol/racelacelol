@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class viewpew: UIViewController {
 
@@ -26,7 +27,23 @@ class viewpew: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-
+    @IBAction func Activate(_ sender: Any) {
+        let playerDB = Database.database().reference().child("Players")
+        
+        
+        
+        let playerDictionary = ["Name" : Auth.auth().currentUser?.email!, "Score" : 28] as! [String: Any]
+        playerDB.childByAutoId().setValue(playerDictionary) {
+            (error, reference) in
+            if error != nil{
+                print("ooooooooooga\(error)")
+            }
+            else {
+                print("Message Saved")
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

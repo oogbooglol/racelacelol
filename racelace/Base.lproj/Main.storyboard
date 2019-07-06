@@ -172,6 +172,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="NIck NG"/>
                                 <connections>
+                                    <action selector="Activate:" destination="JiK-O2-rHg" eventType="touchUpInside" id="DPT-0T-c3a"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="lKt-le-3V7"/>
                                 </connections>
                             </button>
