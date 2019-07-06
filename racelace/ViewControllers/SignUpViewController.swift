@@ -41,6 +41,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 print("the error is: \(error)")
             }
             else {
+                self.performSegue(withIdentifier: "regToMain", sender: self)
                 SVProgressHUD.dismiss()
             }
         }

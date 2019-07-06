@@ -42,6 +42,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 print("error : \(error)")
             }
             else {
+                self.performSegue(withIdentifier: "loginToMain", sender: self)
                 SVProgressHUD.dismiss()
             }
         }

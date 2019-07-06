@@ -233,7 +233,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButton:" destination="Epv-o8-Ted" eventType="touchUpInside" id="Tiz-N4-f1R"/>
-                                    <segue destination="28v-SO-qUD" kind="presentation" id="8Bw-Nf-3U1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ke9-o0-wXK">
@@ -296,6 +295,7 @@
                         <outlet property="emailField" destination="cRQ-Ne-RNf" id="dDV-FQ-dL2"/>
                         <outlet property="errorField" destination="htS-oZ-E4N" id="DU5-wo-3dF"/>
                         <outlet property="passwordField" destination="QB4-cv-pgN" id="uDm-iJ-ZLI"/>
+                        <segue destination="28v-SO-qUD" kind="show" identifier="loginToMain" id="uf2-Qu-dk4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-Vs-Lq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +336,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="B2G-il-RFo" eventType="touchUpInside" id="vHs-u7-ZaR"/>
-                                    <segue destination="28v-SO-qUD" kind="presentation" id="4Zh-rx-bDu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kc-iZ-d0c">
@@ -394,6 +393,7 @@
                         <outlet property="emailField" destination="2si-zU-gJo" id="rtP-YB-THQ"/>
                         <outlet property="errorField" destination="rbc-Is-eeO" id="pFa-o7-vwP"/>
                         <outlet property="passwordField" destination="3rR-xN-0TW" id="Vum-wH-bs9"/>
+                        <segue destination="28v-SO-qUD" kind="show" identifier="regToMain" id="ekg-1L-0mE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5F-h5-TFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,6 +442,6 @@
         <image name="RunAnywhere" width="1920" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Zh-rx-bDu"/>
+        <segue reference="uf2-Qu-dk4"/>
     </inferredMetricsTieBreakers>
 </document>

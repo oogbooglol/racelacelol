@@ -15,7 +15,6 @@
 		89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */; };
 		89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A222C9B092000764A1 /* SignInViewController.swift */; };
 		9CAD229322CBC98F001A745B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CAD229222CBC98F001A745B /* GoogleService-Info.plist */; };
-		9CAD229522CBECB8001A745B /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD229422CBECB8001A745B /* MainMenu.swift */; };
 		9CAD22C022CC2903001A745B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD22BE22CC2902001A745B /* SWRevealViewController.m */; };
 		9CAD22C222CC2AD0001A745B /* viewpew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD22C122CC2AD0001A745B /* viewpew.swift */; };
 		FF3A464F79E572CDC800D1C6 /* Pods_racelace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8176B6515E4082C9C44050B /* Pods_racelace.framework */; };
@@ -32,7 +31,6 @@
 		89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		89FCE3A222C9B092000764A1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9CAD229222CBC98F001A745B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9CAD229422CBECB8001A745B /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		9CAD22BD22CC2901001A745B /* racelace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "racelace-Bridging-Header.h"; sourceTree = "<group>"; };
 		9CAD22BE22CC2902001A745B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		9CAD22BF22CC2903001A745B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			children = (
 				89FCE38C22C99525000764A1 /* AppDelegate.swift */,
 				89FCE39022C99525000764A1 /* Main.storyboard */,
-				9CAD22C122CC2AD0001A745B /* viewpew.swift */,
 				89FCE39322C99526000764A1 /* Assets.xcassets */,
 				89FCE39522C99526000764A1 /* LaunchScreen.storyboard */,
 				9CAD22BF22CC2903001A745B /* SWRevealViewController.h */,
@@ -101,9 +98,9 @@
 		89FCE3A422C9B098000764A1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9CAD22C122CC2AD0001A745B /* viewpew.swift */,
 				89FCE38E22C99525000764A1 /* MainViewController.swift */,
 				89FCE3A222C9B092000764A1 /* SignInViewController.swift */,
-				9CAD229422CBECB8001A745B /* MainMenu.swift */,
 				89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
@@ -235,7 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CAD229522CBECB8001A745B /* MainMenu.swift in Sources */,
 				9CAD22C222CC2AD0001A745B /* viewpew.swift in Sources */,
 				89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */,
 				89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */,
