@@ -23,8 +23,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet weak var textField: UITextField!
     var desiredDist: Double = 0
     var startLocation:CLLocation!
-    var lastLocation: CLLocation!
     var traveledDistance:Double = 0
+    var lastLocation: CLLocation!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,21 +50,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if (location.horizontalAccuracy > 0) {
-        var speed: CLLocationSpeed = CLLocationSpeed()
-        speed = locationManager.location!.speed
-        print("ooga")
-        speedLabel.text = "Speed(m/s): \(speed)"
-        print("speed displayed")
-        if startLocation == nil {
-            startLocation = locations.first
-        } else {
-            let lastLocation = locations.last as! CLLocation
-            let distance = startLocation.distance(from: lastLocation)
-            startLocation = lastLocation
-            traveledDistance += distance
-            print(traveledDistance)
-            progressBar.progress = CGFloat(traveledDistance / desiredDist)
-            distanceLabel.text = String(traveledDistance)
+            var speed: CLLocationSpeed = CLLocationSpeed()
+            speed = locationManager.location!.speed
+            print("ooga")
+            speedLabel.text = "Speed(m/s): \(speed)"
+            print("speed displayed")
+            if startLocation == nil {
+                startLocation = locations.first
+            } else {
+                let lastLocation = locations.last as! CLLocation
+                let distance = startLocation.distance(from: lastLocation)
+                startLocation = lastLocation
+                traveledDistance += distance
+                print(traveledDistance)
+                progressBar.progress = CGFloat(traveledDistance / desiredDist)
+                distanceLabel.text = String(traveledDistance)
             }
         }
     }
@@ -92,7 +92,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.change), userInfo: nil, repeats: true)
         desiredDist = Double(Int(textField.text!)!)
         locationManager.startUpdatingLocation()
-        traveledDistance = 0
     }
     
     @objc func change() {
