@@ -33,6 +33,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUp(_ sender: Any) {
+        let playerDB = Database.database().reference().child("Players")
+        let playerDictionary = ["Name" : Auth.auth().currentUser?.email!, "Score" : 28] as! [String: Any]
+        playerDB.childByAutoId().setValue(playerDictionary) {
+            (error, reference) in
+            if error != nil{
+                print("ooooooooooga\(error)")
+            }
+            else {
+                print("Message Saved")
+            }
+        }
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
