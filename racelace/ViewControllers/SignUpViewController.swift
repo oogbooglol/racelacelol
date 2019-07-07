@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import SVProgressHUD
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
@@ -18,9 +17,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     
     
+    var ref: DatabaseReference!
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference()
         self.emailField.delegate = self
         self.passwordField.delegate = self
         errorField.text = "Invalid Email or Password"
@@ -33,17 +37,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUp(_ sender: Any) {
-        let playerDB = Database.database().reference().child("Players")
-        let playerDictionary = ["Name" : Auth.auth().currentUser?.email!, "Score" : 28] as! [String: Any]
-        playerDB.childByAutoId().setValue(playerDictionary) {
-            (error, reference) in
-            if error != nil{
-                print("ooooooooooga\(error)")
-            }
-            else {
-                print("Message Saved")
-            }
-        }
+//        let playerDB = Database.database().reference().child("Players")
+//        let playerDictionary = ["Name" : Auth.auth().currentUser?.email!, "Score" : 28] as! [String: Any]
+//        playerDB.childByAutoId().setValue(playerDictionary) {
+//            (error, reference) in
+//            if error != nil{
+//                print("ooooooooooga\(error)")
+//            }
+//            else {
+//                print("Message Saved")
+//            }
+//        }
+        
+        
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
@@ -52,6 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 print("the error is: \(error)")
             }
             else {
+                self.ref.child("Players").child(Auth.auth().currentUser!.uid).setValue(["Score" : 25])
                 self.performSegue(withIdentifier: "regToMain", sender: self)
                 SVProgressHUD.dismiss()
             }
