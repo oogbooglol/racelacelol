@@ -13,12 +13,17 @@ class viewpew: UIViewController {
 
     
     var ref: DatabaseReference!
+    var points : Int = 0
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var scoreText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenus()
         ref = Database.database().reference()
+        retrieveData()
+        print(points)
+        self.scoreText.text = "Currency:\(points)"
         // Do any additional setup after loading the view.
     }
     func sideMenus() {
@@ -33,10 +38,12 @@ class viewpew: UIViewController {
     }
     @IBAction func activate(_ sender: Any) {
     }
-    
+
     @IBAction func biggerTheScore(_ sender: Any) {
-        ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Score":27])
         retrieveData()
+        print(points)
+        ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Currency":points+1])
+        self.scoreText.text = "Currency:\(points)"
     }
     func retrieveData() {
         let userID = (Auth.auth().currentUser?.uid)!
@@ -46,12 +53,13 @@ class viewpew: UIViewController {
                 print("No Data!!!")
                 return
             }
-            let scoreValue = value["Score"] as! Int
-            self.scoreText.text = String(scoreValue)
+            self.points = value["Currency"] as! Int
             
         }) { (error) in
             print("error:\(error.localizedDescription)")
         }
+        
+        
     }
     
     /*
