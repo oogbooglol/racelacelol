@@ -59,11 +59,19 @@
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lru-Ot-XKl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starting in....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Jy-ta7">
+                                <rect key="frame" x="80" y="373" width="197" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="countDownLabel" destination="0kM-Jy-ta7" id="Iae-jd-Gyb"/>
                         <outlet property="distanceLabel" destination="iRs-qv-44D" id="G3j-qs-GKM"/>
                         <outlet property="progressBar" destination="rP7-37-x56" id="vbX-vd-ktH"/>
                         <outlet property="speedLabel" destination="FwY-G1-GfD" id="Sx2-mW-0om"/>
@@ -73,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2033" y="-695"/>
+            <point key="canvasLocation" x="2032.8" y="-695.80209895052474"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cB3-v7-8xj">

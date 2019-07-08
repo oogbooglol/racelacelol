@@ -15,6 +15,8 @@ import GTProgressBar
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var countDownLabel: UILabel!
+    var cdTime = 5
     let locationManager = CLLocationManager()
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -27,6 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var lastLocation: CLLocation!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        countDownLabel.isHidden = true
         
         self.textField.delegate = self
         
@@ -83,16 +87,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     //Timer
     
     var timer = Timer()
+    var cdTimer = Timer()
     
     var firstTwo = 0
     var secTwo = 0
     var thirdTwo = 0
     
     @IBAction func startButton(_ sender: Any) {
+        countDownLabel.isHidden = false
+        cdTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
+    }
+    
+    func startEverything() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.change), userInfo: nil, repeats: true)
         desiredDist = Double(Int(textField.text!)!)
         locationManager.startUpdatingLocation()
     }
+    @objc func countDown() {
+        if (cdTime < 0){
+            countDownLabel.isHidden = true
+            cdTimer.invalidate()
+            startEverything()
+        }
+        
+        countDownLabel.text = "Starting in .... \(cdTime)"
+        cdTime = cdTime - 1
+        
+    }
+    
     
     @objc func change() {
         firstTwo += 1
