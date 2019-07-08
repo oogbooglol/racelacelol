@@ -176,6 +176,21 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="lKt-le-3V7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4lS-Sk-430">
+                                <rect key="frame" x="241" y="429" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="bigger the score"/>
+                                <connections>
+                                    <action selector="biggerTheScore:" destination="JiK-O2-rHg" eventType="touchUpInside" id="GZG-vZ-vpJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEO-TO-5fd">
+                                <rect key="frame" x="159" y="160" width="82" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Pwe-t4-miQ"/>
@@ -188,11 +203,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="cUf-vB-GAk" id="9lI-k5-SUr"/>
+                        <outlet property="scoreText" destination="OEO-TO-5fd" id="jAb-vg-bPn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFu-uf-1bV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="554" y="-637"/>
+            <point key="canvasLocation" x="552.79999999999995" y="-637.33133433283365"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="cqe-zc-KSB">

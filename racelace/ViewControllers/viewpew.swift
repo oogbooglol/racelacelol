@@ -14,6 +14,7 @@ class viewpew: UIViewController {
     
     var ref: DatabaseReference!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var scoreText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenus()
@@ -31,7 +32,26 @@ class viewpew: UIViewController {
         }
     }
     @IBAction func activate(_ sender: Any) {
+    }
+    
+    @IBAction func biggerTheScore(_ sender: Any) {
         ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Score":27])
+        retrieveData()
+    }
+    func retrieveData() {
+        let userID = (Auth.auth().currentUser?.uid)!
+        ref.child("Players").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            let scoreValue = value["Score"] as! Int
+            self.scoreText.text = String(scoreValue)
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
     }
     
     /*

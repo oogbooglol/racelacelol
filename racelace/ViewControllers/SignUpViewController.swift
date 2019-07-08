@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 print("the error is: \(error)")
             }
             else {
-                self.ref.child("Players").child(Auth.auth().currentUser!.uid).setValue(["Score" : 25])
+                self.ref.child("Players").child(Auth.auth().currentUser!.uid).setValue(["Score": 25])
                 self.performSegue(withIdentifier: "regToMain", sender: self)
                 SVProgressHUD.dismiss()
             }
