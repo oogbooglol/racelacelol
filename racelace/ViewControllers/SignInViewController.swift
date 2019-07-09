@@ -11,8 +11,9 @@ import Firebase
 import FirebaseAuth
 import SVProgressHUD
 import TextFieldEffects
+import GoogleSignIn
 
-class SignInViewController: UIViewController, UITextFieldDelegate {
+class SignInViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     
     @IBOutlet weak var errorField: UILabel!
     @IBOutlet weak var emailField: MadokaTextField!
@@ -26,6 +27,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         errorField.text = "Invalid Email or Password"
         errorField.isHidden = true
+        GIDSignIn.sharedInstance().uiDelegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -33,13 +35,16 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+
+    
     @IBAction func loginButton(_ sender: Any) {
+        
         SVProgressHUD.show()
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
             if error != nil {
                 self.errorField.isHidden = false
                 SVProgressHUD.dismiss()
-                print("error : \(error)")
+                print(error!)
             }
             else {
                 self.performSegue(withIdentifier: "loginToMain", sender: self)
@@ -48,6 +53,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func googleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
     /*
     // MARK: - Navigation
 

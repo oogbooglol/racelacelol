@@ -14,6 +14,7 @@
 		89FCE39722C99526000764A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FCE39522C99526000764A1 /* LaunchScreen.storyboard */; };
 		89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */; };
 		89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A222C9B092000764A1 /* SignInViewController.swift */; };
+		9C9B6E8822D408A00019B507 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B6E8722D408A00019B507 /* border.png */; };
 		9CAD229322CBC98F001A745B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CAD229222CBC98F001A745B /* GoogleService-Info.plist */; };
 		9CAD22C022CC2903001A745B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD22BE22CC2902001A745B /* SWRevealViewController.m */; };
 		9CAD22C222CC2AD0001A745B /* viewpew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD22C122CC2AD0001A745B /* viewpew.swift */; };
@@ -30,6 +31,7 @@
 		89FCE39822C99526000764A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		89FCE3A222C9B092000764A1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		9C9B6E8722D408A00019B507 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
 		9CAD229222CBC98F001A745B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CAD22BD22CC2901001A745B /* racelace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "racelace-Bridging-Header.h"; sourceTree = "<group>"; };
 		9CAD22BE22CC2902001A745B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				89FCE38C22C99525000764A1 /* AppDelegate.swift */,
 				89FCE39022C99525000764A1 /* Main.storyboard */,
 				89FCE39322C99526000764A1 /* Assets.xcassets */,
+				9C9B6E8722D408A00019B507 /* border.png */,
 				89FCE39522C99526000764A1 /* LaunchScreen.storyboard */,
 				9CAD22BF22CC2903001A745B /* SWRevealViewController.h */,
 				9CAD22BE22CC2902001A745B /* SWRevealViewController.m */,
@@ -127,6 +130,7 @@
 				89FCE38622C99525000764A1 /* Frameworks */,
 				89FCE38722C99525000764A1 /* Resources */,
 				F59714B38339810D3BD02F55 /* [CP] Embed Pods Frameworks */,
+				795A5314AF12710936E4BEC6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,6 +184,7 @@
 				9CAD229322CBC98F001A745B /* GoogleService-Info.plist in Resources */,
 				89FCE39422C99526000764A1 /* Assets.xcassets in Resources */,
 				89FCE39222C99525000764A1 /* Main.storyboard in Resources */,
+				9C9B6E8822D408A00019B507 /* border.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +211,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		795A5314AF12710936E4BEC6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-racelace/Pods-racelace-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-racelace/Pods-racelace-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-racelace/Pods-racelace-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F59714B38339810D3BD02F55 /* [CP] Embed Pods Frameworks */ = {
@@ -386,13 +408,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = HRQF7L3R8P;
 				INFOPLIST_FILE = racelace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.osdfodsof.racelace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.racelace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "racelace/racelace-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -408,13 +430,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25BKB2B8F3;
+				DEVELOPMENT_TEAM = HRQF7L3R8P;
 				INFOPLIST_FILE = racelace/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.osdfodsof.racelace;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mpeng202.racelace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "racelace/racelace-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

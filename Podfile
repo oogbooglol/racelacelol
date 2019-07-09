@@ -14,4 +14,5 @@ target 'racelace' do
     pod 'Firebase/Database'
     pod 'SVProgressHUD'
     pod 'PKRevealController'
+    pod 'GoogleSignIn'
 end

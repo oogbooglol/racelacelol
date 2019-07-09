@@ -39,6 +39,15 @@ class viewpew: UIViewController {
     @IBAction func activate(_ sender: Any) {
     }
 
+    @IBAction func signOut(_ sender: Any) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     @IBAction func biggerTheScore(_ sender: Any) {
         retrieveData()
         print(points)

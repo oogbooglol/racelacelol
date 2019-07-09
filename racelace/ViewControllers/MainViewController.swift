@@ -15,6 +15,8 @@ import GTProgressBar
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var endButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var countDownLabel: UILabel!
     var cdTime = 5
     let locationManager = CLLocationManager()
@@ -29,11 +31,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var lastLocation: CLLocation!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         countDownLabel.isHidden = true
-        
+        timerLabel.isHidden = true
         self.textField.delegate = self
-        
+        endButton.isHidden = true
         locationManager.delegate = self
         if NSString(string:UIDevice.current.systemVersion).doubleValue > 8 {
             locationManager.requestAlwaysAuthorization()
@@ -42,7 +43,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         locationManager.desiredAccuracy=kCLLocationAccuracyBest
         print("managing")
         progressBar.progress = 0
-        progressBar.displayLabel = true
+        progressBar.isHidden = true
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,10 +96,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var thirdTwo = 0
     
     @IBAction func startButton(_ sender: Any) {
+        cdTime = 5
         countDownLabel.isHidden = false
+        startButton.isHidden = true
+        endButton.isHidden = false
         cdTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
     }
     
+    @IBAction func endPressed(_ sender: Any) {
+        thirdTwo = 0
+        secTwo = 0
+        firstTwo = 0
+        timerLabel.isHidden = true
+        timer.invalidate()
+        endButton.isHidden = true
+        startButton.isHidden = false
+        progressBar.progress = 0
+        progressBar.isHidden = true
+        traveledDistance = 0
+        locationManager.stopUpdatingLocation()
+    }
     func startEverything() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.change), userInfo: nil, repeats: true)
         desiredDist = Double(Int(textField.text!)!)
@@ -105,9 +123,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     @objc func countDown() {
         if (cdTime < 0){
+            cdTime = 5
+            progressBar.isHidden = false
             countDownLabel.isHidden = true
             cdTimer.invalidate()
             startEverything()
+            timerLabel.isHidden = false
         }
         
         countDownLabel.text = "Starting in .... \(cdTime)"

@@ -52,20 +52,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1de-UM-qtC">
-                                <rect key="frame" x="170" y="214" width="34" height="30"/>
+                                <rect key="frame" x="106" y="135" width="166" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="30"/>
+                                <state key="normal" title="Start Race">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lru-Ot-XKl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Starting in....." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kM-Jy-ta7">
-                                <rect key="frame" x="80" y="373" width="197" height="107"/>
+                                <rect key="frame" x="89" y="113" width="197" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beedee" translatesAutoresizingMaskIntoConstraints="NO" id="z0C-7h-mYy">
+                                <rect key="frame" x="27" y="396" width="321" height="271"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avq-NM-qL9">
+                                <rect key="frame" x="141" y="228" width="93" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
+                                <state key="normal" title="End Race">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="endPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W4n-Vu-YUY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -73,8 +92,10 @@
                     <connections>
                         <outlet property="countDownLabel" destination="0kM-Jy-ta7" id="Iae-jd-Gyb"/>
                         <outlet property="distanceLabel" destination="iRs-qv-44D" id="G3j-qs-GKM"/>
+                        <outlet property="endButton" destination="Avq-NM-qL9" id="dau-tK-5gP"/>
                         <outlet property="progressBar" destination="rP7-37-x56" id="vbX-vd-ktH"/>
                         <outlet property="speedLabel" destination="FwY-G1-GfD" id="Sx2-mW-0om"/>
+                        <outlet property="startButton" destination="1de-UM-qtC" id="HIi-tE-vEM"/>
                         <outlet property="textField" destination="ACt-U7-nid" id="FA8-7I-bsr"/>
                         <outlet property="timerLabel" destination="tqQ-yJ-CmG" id="zDy-Ct-Qx6"/>
                     </connections>
@@ -199,6 +220,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8E-kq-IO5">
+                                <rect key="frame" x="234" y="205" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOut:" destination="JiK-O2-rHg" eventType="touchUpInside" id="l2F-pV-6Ke"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Pwe-t4-miQ"/>
@@ -311,6 +340,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bda-uH-X9U" customClass="GIDSignInButton">
+                                <rect key="frame" x="67" y="336" width="240" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="googleLogin:" destination="Epv-o8-Ted" eventType="touchUpInside" id="Pev-X5-4QH"/>
+                                    <action selector="googleLoginPressed:" destination="Epv-o8-Ted" eventType="valueChanged" id="NMg-Lf-1rf"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DIm-KD-KgY"/>
@@ -325,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-Vs-Lq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="-696"/>
+            <point key="canvasLocation" x="1288.8" y="-696.7016491754124"/>
         </scene>
         <!--SignUpViewController-->
         <scene sceneID="sbO-Bb-Kqx">
@@ -409,6 +447,14 @@
                                 <color key="textColor" red="0.89813512559999997" green="0.1089700301" blue="0.062270253560000002" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWU-ao-0ua">
+                                <rect key="frame" x="164" y="510" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="JiK-O2-rHg" kind="presentation" id="bV0-0J-B0D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="swI-Tx-nZl"/>
@@ -465,8 +511,10 @@
     <resources>
         <image name="588a64f5d06f6719692a2d13" width="666.5" height="666.5"/>
         <image name="RunAnywhere" width="1920" height="1080"/>
+        <image name="beedee" width="2400" height="1640"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ekg-1L-0mE"/>
+        <segue reference="bV0-0J-B0D"/>
     </inferredMetricsTieBreakers>
 </document>
