@@ -66,11 +66,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             } else {
                 let lastLocation = locations.last as! CLLocation
                 let distance = startLocation.distance(from: lastLocation)
-                startLocation = lastLocation
+                if distance > 4 {
+                    startLocation = lastLocation
+                }
                 traveledDistance += distance
                 print(traveledDistance)
-                progressBar.progress = CGFloat(traveledDistance / desiredDist)
+                //progressBar.progress = CGFloat(traveledDistance / desiredDist)
                 distanceLabel.text = String(traveledDistance)
+            }
+            if (progressBar.isHidden == false) {
+                progressBar.progress = CGFloat(traveledDistance / desiredDist)
             }
         }
     }
@@ -97,6 +102,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     @IBAction func startButton(_ sender: Any) {
         cdTime = 5
+        locationManager.startUpdatingLocation()
         countDownLabel.isHidden = false
         startButton.isHidden = true
         endButton.isHidden = false
@@ -119,7 +125,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func startEverything() {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.change), userInfo: nil, repeats: true)
         desiredDist = Double(Int(textField.text!)!)
-        locationManager.startUpdatingLocation()
     }
     @objc func countDown() {
         if (cdTime < 0){
@@ -129,6 +134,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             cdTimer.invalidate()
             startEverything()
             timerLabel.isHidden = false
+            traveledDistance = 0
         }
         
         countDownLabel.text = "Starting in .... \(cdTime)"
