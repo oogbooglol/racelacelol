@@ -65,14 +65,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                 startLocation = locations.first
             } else {
                 let lastLocation = locations.last as! CLLocation
-                let distance = startLocation.distance(from: lastLocation)
-                if distance > 4 {
+                distanceLabel.text = String(traveledDistance) 
+                if (startLocation.distance(from: lastLocation) > 4) {
+                    let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
+                    traveledDistance += distance
                 }
-                traveledDistance += distance
                 print(traveledDistance)
                 //progressBar.progress = CGFloat(traveledDistance / desiredDist)
-                distanceLabel.text = String(traveledDistance)
             }
             if (progressBar.isHidden == false) {
                 progressBar.progress = CGFloat(traveledDistance / desiredDist)
