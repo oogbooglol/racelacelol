@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89024F0222D539620073968D /* LobbyOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89024F0122D539620073968D /* LobbyOneViewController.swift */; };
 		89FCE38D22C99525000764A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE38C22C99525000764A1 /* AppDelegate.swift */; };
 		89FCE38F22C99525000764A1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE38E22C99525000764A1 /* MainViewController.swift */; };
 		89FCE39222C99525000764A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FCE39022C99525000764A1 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89024F0122D539620073968D /* LobbyOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyOneViewController.swift; sourceTree = "<group>"; };
 		89FCE38922C99525000764A1 /* racelace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = racelace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FCE38C22C99525000764A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89FCE38E22C99525000764A1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				89FCE38E22C99525000764A1 /* MainViewController.swift */,
 				89FCE3A222C9B092000764A1 /* SignInViewController.swift */,
 				89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */,
+				89024F0122D539620073968D /* LobbyOneViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				9CAD22C222CC2AD0001A745B /* viewpew.swift in Sources */,
 				89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */,
+				89024F0222D539620073968D /* LobbyOneViewController.swift in Sources */,
 				89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */,
 				89FCE38F22C99525000764A1 /* MainViewController.swift in Sources */,
 				89FCE38D22C99525000764A1 /* AppDelegate.swift in Sources */,
