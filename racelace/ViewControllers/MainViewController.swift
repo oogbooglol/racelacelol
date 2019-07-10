@@ -14,7 +14,7 @@ import GTProgressBar
 
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate {
-    
+    var ref: DatabaseReference!
     @IBOutlet weak var endButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var countDownLabel: UILabel!
@@ -44,7 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         print("managing")
         progressBar.progress = 0
         progressBar.isHidden = true
-        
+        ref = Database.database().reference()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -107,6 +107,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         startButton.isHidden = true
         endButton.isHidden = false
         cdTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
+        ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).removeValue()
+        
     }
     
     @IBAction func endPressed(_ sender: Any) {

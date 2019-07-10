@@ -36,6 +36,10 @@ class viewpew: UIViewController {
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
+    
+    @IBAction func getInQ(_ sender: Any) {
+        ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
+    }
     @IBAction func activate(_ sender: Any) {
     }
 
@@ -47,7 +51,7 @@ class viewpew: UIViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-    }
+    }//411837
     @IBAction func biggerTheScore(_ sender: Any) {
         retrieveData()
         print(points)
