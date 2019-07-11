@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import Firebase
 
 class CustomTableViewCell: UITableViewCell {
-    @IBOutlet weak var cellLabel: UILabel!
+        var ref: DatabaseReference!
+    @IBOutlet weak var Button: UIButton!
+    var lobbyNum: Int = 0
+    @IBAction func ButtonPressed(_ sender: Any) {
+        ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby":lobbyNum])
+    }
     
 }
 
 class QueueViewController: UIViewController, UITableViewDataSource {
-
+    var bef: DatabaseReference!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bef = Database.database().reference()
         // Do any additional setup after loading the view.
         
         tableView.register(UINib(nibName: "cell", bundle: nil) , forCellReuseIdentifier: "custom")
@@ -32,7 +38,9 @@ class QueueViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
-        cell.cellLabel.text = "Lobby \(indexPath.row+1)"
+        cell.Button.setTitle("Lobby" + String(indexPath.row+1), for: .normal)
+        cell.lobbyNum = indexPath.row+1
+        cell.ref = bef
         return cell
     }
 
