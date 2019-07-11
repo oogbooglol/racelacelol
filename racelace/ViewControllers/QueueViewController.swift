@@ -10,11 +10,32 @@ import UIKit
 import Firebase
 
 class CustomTableViewCell: UITableViewCell {
-        var ref: DatabaseReference!
+    
+    var points = 0
+    var ref: DatabaseReference!
     @IBOutlet weak var Button: UIButton!
     var lobbyNum: Int = 0
     @IBAction func ButtonPressed(_ sender: Any) {
+        retrieveData()
         ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby":lobbyNum])
+    }
+    
+    
+    func retrieveData() {
+        let userID = (Auth.auth().currentUser?.uid)!
+        ref.child("Players").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            guard let value = snapshot.value as? NSDictionary else {
+                print("No Data!!!")
+                return
+            }
+            self.points = value["Currency"] as! Int
+            
+        }) { (error) in
+            print("error:\(error.localizedDescription)")
+        }
+        
+        
     }
     
 }
