@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89024F0222D539620073968D /* LobbyOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89024F0122D539620073968D /* LobbyOneViewController.swift */; };
+		89024F0222D539620073968D /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89024F0122D539620073968D /* LobbyViewController.swift */; };
+		89024F0822D6AC450073968D /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89024F0722D6AC450073968D /* cell.xib */; };
+		89024F0E22D6ACDB0073968D /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89024F0D22D6ACDB0073968D /* QueueViewController.swift */; };
 		89FCE38D22C99525000764A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE38C22C99525000764A1 /* AppDelegate.swift */; };
 		89FCE38F22C99525000764A1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE38E22C99525000764A1 /* MainViewController.swift */; };
 		89FCE39222C99525000764A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FCE39022C99525000764A1 /* Main.storyboard */; };
@@ -15,7 +17,6 @@
 		89FCE39722C99526000764A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FCE39522C99526000764A1 /* LaunchScreen.storyboard */; };
 		89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */; };
 		89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE3A222C9B092000764A1 /* SignInViewController.swift */; };
-		9C2C773F22D6A8B400541062 /* lobbyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C773E22D6A8B400541062 /* lobbyScreen.swift */; };
 		9C9B6E8822D408A00019B507 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C9B6E8722D408A00019B507 /* border.png */; };
 		9CAD229322CBC98F001A745B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CAD229222CBC98F001A745B /* GoogleService-Info.plist */; };
 		9CAD22C022CC2903001A745B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAD22BE22CC2902001A745B /* SWRevealViewController.m */; };
@@ -24,7 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		89024F0122D539620073968D /* LobbyOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyOneViewController.swift; sourceTree = "<group>"; };
+		89024F0122D539620073968D /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		89024F0722D6AC450073968D /* cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
+		89024F0D22D6ACDB0073968D /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		89FCE38922C99525000764A1 /* racelace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = racelace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FCE38C22C99525000764A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89FCE38E22C99525000764A1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +37,6 @@
 		89FCE39822C99526000764A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		89FCE3A222C9B092000764A1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		9C2C773E22D6A8B400541062 /* lobbyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lobbyScreen.swift; sourceTree = "<group>"; };
 		9C9B6E8722D408A00019B507 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
 		9CAD229222CBC98F001A745B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9CAD22BD22CC2901001A745B /* racelace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "racelace-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -89,7 +91,7 @@
 			children = (
 				89FCE38C22C99525000764A1 /* AppDelegate.swift */,
 				89FCE39022C99525000764A1 /* Main.storyboard */,
-				9C2C773E22D6A8B400541062 /* lobbyScreen.swift */,
+				89024F0722D6AC450073968D /* cell.xib */,
 				89FCE39322C99526000764A1 /* Assets.xcassets */,
 				9C9B6E8722D408A00019B507 /* border.png */,
 				89FCE39522C99526000764A1 /* LaunchScreen.storyboard */,
@@ -110,7 +112,8 @@
 				89FCE38E22C99525000764A1 /* MainViewController.swift */,
 				89FCE3A222C9B092000764A1 /* SignInViewController.swift */,
 				89FCE3A022C9AD4F000764A1 /* SignUpViewController.swift */,
-				89024F0122D539620073968D /* LobbyOneViewController.swift */,
+				89024F0122D539620073968D /* LobbyViewController.swift */,
+				89024F0D22D6ACDB0073968D /* QueueViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				89FCE39722C99526000764A1 /* LaunchScreen.storyboard in Resources */,
 				9CAD229322CBC98F001A745B /* GoogleService-Info.plist in Resources */,
 				89FCE39422C99526000764A1 /* Assets.xcassets in Resources */,
+				89024F0822D6AC450073968D /* cell.xib in Resources */,
 				89FCE39222C99525000764A1 /* Main.storyboard in Resources */,
 				9C9B6E8822D408A00019B507 /* border.png in Resources */,
 			);
@@ -260,11 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89024F0E22D6ACDB0073968D /* QueueViewController.swift in Sources */,
 				9CAD22C222CC2AD0001A745B /* viewpew.swift in Sources */,
 				89FCE3A322C9B092000764A1 /* SignInViewController.swift in Sources */,
-				89024F0222D539620073968D /* LobbyOneViewController.swift in Sources */,
+				89024F0222D539620073968D /* LobbyViewController.swift in Sources */,
 				89FCE3A122C9AD4F000764A1 /* SignUpViewController.swift in Sources */,
-				9C2C773F22D6A8B400541062 /* lobbyScreen.swift in Sources */,
 				89FCE38F22C99525000764A1 /* MainViewController.swift in Sources */,
 				89FCE38D22C99525000764A1 /* AppDelegate.swift in Sources */,
 				9CAD22C022CC2903001A745B /* SWRevealViewController.m in Sources */,
