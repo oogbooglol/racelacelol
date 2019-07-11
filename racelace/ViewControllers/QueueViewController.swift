@@ -16,31 +16,11 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var Button: UIButton!
     var lobbyNum: Int = 0
     @IBAction func ButtonPressed(_ sender: Any) {
-        retrieveData()
-        ref.child("Players").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby":lobbyNum])
+    ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby":lobbyNum])
     }
-    
-    
-    func retrieveData() {
-        let userID = (Auth.auth().currentUser?.uid)!
-        ref.child("Players").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            guard let value = snapshot.value as? NSDictionary else {
-                print("No Data!!!")
-                return
-            }
-            self.points = value["Currency"] as! Int
-            
-        }) { (error) in
-            print("error:\(error.localizedDescription)")
-        }
-        
-        
-    }
-    
 }
 
-class QueueViewController: UIViewController, UITableViewDataSource {
+class QueueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var bef: DatabaseReference!
     @IBOutlet weak var tableView: UITableView!
     
@@ -48,7 +28,8 @@ class QueueViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         bef = Database.database().reference()
         // Do any additional setup after loading the view.
-        
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(UINib(nibName: "cell", bundle: nil) , forCellReuseIdentifier: "custom")
     }
     
@@ -56,7 +37,11 @@ class QueueViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("GOOOOOGOGOGOOGGOGOGOGOGOGGOGOGOGGOGOGG")
+        // Segue to the second view controller
+        self.performSegue(withIdentifier: "toReadyScreen", sender: self)
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
         cell.Button.setTitle("Lobby" + String(indexPath.row+1), for: .normal)
