@@ -1,15 +1,17 @@
 //
-//  readyScreen.swift
-//  FirebaseAuth
+//  ReadyViewController.swift
+//  racelace
 //
-//  Created by Ricky Wang on 7/10/19.
+//  Created by Michael Peng on 7/12/19.
+//  Copyright © 2019 Michael Peng. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class readyScreen: UIViewController {
-    var ref: DatabaseReference!
+class ReadyViewController: UIViewController {
+    var ref : DatabaseReference!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
@@ -17,7 +19,7 @@ class readyScreen: UIViewController {
     }
     
     @IBAction func readyPressed(_ sender: Any) {
-    self.ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).updateChildValues(["Ready": true])
+        ref.child("queuedPlayers").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Ready": true])
     }
     
     /*

@@ -18,18 +18,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbp-3p-SIq">
-                        <rect key="frame" x="20" y="6" width="374" height="30"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN1-w0-wCN">
+                        <rect key="frame" x="20" y="11" width="374" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="ButtonPressed:" destination="Tlw-1D-BOH" eventType="touchUpInside" id="zft-dy-YfD"/>
-                        </connections>
-                    </button>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="Button" destination="nbp-3p-SIq" id="by4-uy-UyS"/>
+                <outlet property="Label" destination="gN1-w0-wCN" id="2fx-CA-tQO"/>
             </connections>
             <point key="canvasLocation" x="-72.463768115942031" y="67.633928571428569"/>
         </tableViewCell>

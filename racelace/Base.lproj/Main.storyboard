@@ -297,37 +297,37 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="fSD-2Z-DY5" id="tYt-DF-qVc"/>
-                        <segue destination="8wy-SW-80F" kind="presentation" identifier="toReadyScreen" id="fWh-Qu-Vzv"/>
+                        <segue destination="K6I-8x-sEn" kind="show" identifier="toReadyScreen" id="gn6-lJ-0QH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9rO-NZ-ESU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1502" y="-1275"/>
+            <point key="canvasLocation" x="1502" y="-1310"/>
         </scene>
-        <!--Ready Screen-->
-        <scene sceneID="Pnw-Va-kXC">
+        <!--Ready View Controller-->
+        <scene sceneID="PpX-fZ-xBy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W2D-cB-Ejh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="8wy-SW-80F" customClass="readyScreen" customModule="FirebaseAuth" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gzR-GQ-bBz">
+                <viewController id="K6I-8x-sEn" customClass="ReadyViewController" customModule="racelace" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rka-n5-9rX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnw-mQ-ATg">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FQ-wD-dht">
                                 <rect key="frame" x="166" y="318" width="43" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ready"/>
                                 <connections>
-                                    <action selector="readyPressed:" destination="8wy-SW-80F" eventType="touchUpInside" id="nqs-i8-be4"/>
+                                    <action selector="readyPressed:" destination="K6I-8x-sEn" eventType="touchUpInside" id="cBV-B3-oE1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="S8m-a6-pIM"/>
+                        <viewLayoutGuide key="safeArea" id="raQ-j9-Zze"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRT-3s-Kgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="-1275"/>
+            <point key="canvasLocation" x="2498" y="-1353"/>
         </scene>
         <!--test-->
         <scene sceneID="KCc-ty-jw2">

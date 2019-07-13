@@ -13,11 +13,8 @@ class CustomTableViewCell: UITableViewCell {
     
     var points = 0
     var ref: DatabaseReference!
-    @IBOutlet weak var Button: UIButton!
     var lobbyNum: Int = 0
-    @IBAction func ButtonPressed(_ sender: Any) {
-    ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby":lobbyNum])
-    }
+    @IBOutlet weak var Label: UILabel!
 }
 
 class QueueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -38,14 +35,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         return 4
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell : CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
+        print("ooga")
+        bef.child("queuedPlayers").child(Auth.auth().currentUser!.uid).updateChildValues(["Lobby": indexPath.row+1])
         print("GOOOOOGOGOGOOGGOGOGOGOGOGGOGOGOGGOGOGG")
-        // Segue to the second view controller
         self.performSegue(withIdentifier: "toReadyScreen", sender: self)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: "custom") as! CustomTableViewCell
-        cell.Button.setTitle("Lobby" + String(indexPath.row+1), for: .normal)
         cell.lobbyNum = indexPath.row+1
+        cell.Label.text = "Lobby \(cell.lobbyNum)"
         cell.ref = bef
         return cell
     }
