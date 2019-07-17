@@ -11,6 +11,8 @@ import Firebase
 
 class ReadyViewController: UIViewController {
     var ref : DatabaseReference!
+    var ready = 0
+    var currLobby = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,41 @@ class ReadyViewController: UIViewController {
     
     @IBAction func readyPressed(_ sender: Any) {
         ref.child("queuedPlayers").child((Auth.auth().currentUser?.uid)!).updateChildValues(["Ready": true])
+        
+        var timer = Timer()
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ReadyViewController.check), userInfo: nil, repeats: true)
     }
+    
+    @objc func check(){
+        ready = 0
+        fetchPlayers()
+    }
+    
+    
+    func fetchPlayers(){
+        ref.child("queuedPlayers").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                let lobbyNum = value["Lobby"] as! Int
+                let isReady = value["Ready"] as! Bool
+                if lobbyNum == self.currLobby && isReady {
+                    self.ready=self.ready+1
+                    print("yes")
+                }
+                print(self.ready)
+                
+                if self.ready >= 2 {
+                    self.performSegue(withIdentifier: "start", sender: self)
+                }
+                                
+            }
+            
+            
+        }
     
     /*
     // MARK: - Navigation
@@ -32,4 +68,5 @@ class ReadyViewController: UIViewController {
     }
     */
 
+}
 }
