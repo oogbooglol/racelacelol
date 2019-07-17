@@ -24,6 +24,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var progressBar: GTProgressBar!
+    @IBOutlet weak var progressBar2: GTProgressBar!
+    @IBOutlet weak var progressBar3: GTProgressBar!
+    @IBOutlet weak var progressBar4: GTProgressBar!
     @IBOutlet weak var textField: UITextField!
     var desiredDist: Double = 0
     var startLocation:CLLocation!
@@ -44,6 +47,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         print("managing")
         progressBar.progress = 0
         progressBar.isHidden = true
+        progressBar2.isHidden = true
+        progressBar3.isHidden = true
+        progressBar4.isHidden = true
         ref = Database.database().reference()
     }
     
@@ -67,6 +73,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                 let lastLocation = locations.last as! CLLocation
                 distanceLabel.text = String(traveledDistance) 
                 if (startLocation.distance(from: lastLocation) > 4) {
+                    updateAllProgress()
                     let distance = startLocation.distance(from: lastLocation)
                     startLocation = lastLocation
                     traveledDistance += distance
@@ -107,7 +114,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         startButton.isHidden = true
         endButton.isHidden = false
         cdTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.countDown), userInfo: nil, repeats: true)
-        ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).removeValue()
         
     }
     
@@ -119,8 +125,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         timer.invalidate()
         endButton.isHidden = true
         startButton.isHidden = false
-        progressBar.progress = 0
         progressBar.isHidden = true
+        progressBar2.isHidden = true
+        progressBar3.isHidden = true
+        progressBar4.isHidden = true
+        progressBar.progress = 0
         traveledDistance = 0
         locationManager.stopUpdatingLocation()
     }
@@ -132,7 +141,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         if (cdTime < 0){
             cdTime = 5
             progressBar.isHidden = false
-            countDownLabel.isHidden = true
+            progressBar2.isHidden = false
+            progressBar3.isHidden = false
+            progressBar4.isHidden = false
+            countDownLabel.isHidden = false
             cdTimer.invalidate()
             startEverything()
             timerLabel.isHidden = false
@@ -157,5 +169,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         }
         timerLabel.text = "\(thirdTwo) : \(secTwo) : \(firstTwo)"
     }
-    
+    func updateAllProgress(){
+        var counter = 1
+        ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).updateChildValues(["Dist" : traveledDistance])
+        ref.child("queuedPlayers").observeSingleEvent(of: .value) { snapshot in
+            print(snapshot.childrenCount)
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                var points = -1
+                guard let value = rest.value as? NSDictionary else {
+                    print("No Data!!!")
+                    return
+                }
+                var distance: Double = value["Dist"] as! Double
+                if (rest.key != Auth.auth().currentUser!.uid) {
+                if (counter == 1) {
+                    self.progressBar2.progress = CGFloat(distance / self.desiredDist)
+                }
+                else if (counter == 2) {
+                    self.progressBar3.progress = CGFloat(distance / self.desiredDist)
+                }
+                else if (counter == 3) {
+                    self.progressBar4.progress = CGFloat(distance / self.desiredDist)
+                }
+                    counter = counter + 1
+            }
+            }
+            
+        }
+    }
 }

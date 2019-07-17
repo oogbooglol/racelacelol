@@ -39,7 +39,7 @@ class viewpew: UIViewController {
     
     @IBAction func getInQ(_ sender: Any) {
         ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).setValue(Auth.auth().currentUser!.uid)
-        self.ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).setValue(["Ready": false, "Lobby" : 0])
+        self.ref.child("queuedPlayers").child(Auth.auth().currentUser!.uid).setValue(["Ready": false, "Lobby" : 0, "Dist" : 0])
     }
     @IBAction func activate(_ sender: Any) {
     }
